@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 15d551abcf145c14592a4150ebf68185
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - particleThingy: {fileID: 100000, guid: 3005c84fc7ce54612bbfbca3244c4ed1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
