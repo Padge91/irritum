@@ -21,7 +21,7 @@ public class PurpleToggle : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 16;
 		gameObject.tag = "Purple";
 		
@@ -78,7 +78,7 @@ public class PurpleToggle : MonoBehaviour {
 		}
 		
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = true;
@@ -91,7 +91,7 @@ public class PurpleToggle : MonoBehaviour {
 			moveBack = true;
 		}
 	
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

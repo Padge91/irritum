@@ -24,7 +24,7 @@ public class memoriesMenuScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Time.timeScale = 1;
 		
 		rememberer = GameObject.FindGameObjectWithTag("rememberer");

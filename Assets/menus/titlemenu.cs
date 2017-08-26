@@ -30,7 +30,7 @@ public class titlemenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		switching = false;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Time.timeScale = 1;
 		
 
@@ -118,7 +118,7 @@ public class titlemenu : MonoBehaviour {
 	}
 	
 	void Awake () {
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		switching = false;
 		
 				//Screen.SetResolution(Screen.currentResolution.width,Screen.currentResolution.height,true);

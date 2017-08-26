@@ -22,7 +22,7 @@ public class OrangeToggle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 17;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
@@ -78,7 +78,7 @@ public class OrangeToggle : MonoBehaviour {
 			moveBack = false;
 		}
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = true;
@@ -91,7 +91,7 @@ public class OrangeToggle : MonoBehaviour {
 			moveBack = true;
 		}
 		
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

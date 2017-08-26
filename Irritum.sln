@@ -1,11 +1,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{FE809E51-FEFA-5FEE-CED5-39EDB9B15ECD}") = "Irritum", "Assembly-CSharp-firstpass.csproj", "{038FF9E1-B6C5-AF5F-D391-B86738F4A7AA}"
+Project("{8A556BA7-456D-6DB6-E861-501790FE6EF1}") = "irritum", "Assembly-CSharp-firstpass.csproj", "{ECAC1709-276B-BB57-CE1B-40812E8C750A}"
 EndProject
-Project("{FE809E51-FEFA-5FEE-CED5-39EDB9B15ECD}") = "Irritum", "Assembly-CSharp.csproj", "{4A4A3E99-02E3-90BD-2FB0-C2DC70CE58D0}"
-EndProject
-Project("{FE809E51-FEFA-5FEE-CED5-39EDB9B15ECD}") = "Irritum", "Assembly-UnityScript-firstpass.unityproj", "{E4E41706-28E7-F898-E4C1-8D57DBF82218}"
+Project("{8A556BA7-456D-6DB6-E861-501790FE6EF1}") = "irritum", "Assembly-CSharp.csproj", "{88799962-5993-EFC4-FEB1-B32F0463301B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,18 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{038FF9E1-B6C5-AF5F-D391-B86738F4A7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{038FF9E1-B6C5-AF5F-D391-B86738F4A7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{038FF9E1-B6C5-AF5F-D391-B86738F4A7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{038FF9E1-B6C5-AF5F-D391-B86738F4A7AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A4A3E99-02E3-90BD-2FB0-C2DC70CE58D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A4A3E99-02E3-90BD-2FB0-C2DC70CE58D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A4A3E99-02E3-90BD-2FB0-C2DC70CE58D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A4A3E99-02E3-90BD-2FB0-C2DC70CE58D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4E41706-28E7-F898-E4C1-8D57DBF82218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4E41706-28E7-F898-E4C1-8D57DBF82218}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4E41706-28E7-F898-E4C1-8D57DBF82218}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4E41706-28E7-F898-E4C1-8D57DBF82218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECAC1709-276B-BB57-CE1B-40812E8C750A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAC1709-276B-BB57-CE1B-40812E8C750A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAC1709-276B-BB57-CE1B-40812E8C750A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAC1709-276B-BB57-CE1B-40812E8C750A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88799962-5993-EFC4-FEB1-B32F0463301B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88799962-5993-EFC4-FEB1-B32F0463301B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88799962-5993-EFC4-FEB1-B32F0463301B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88799962-5993-EFC4-FEB1-B32F0463301B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +41,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal

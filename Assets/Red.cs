@@ -9,12 +9,12 @@ public class Red : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		colliderVar = gameObject.collider as BoxCollider;
+		colliderVar = gameObject.GetComponent<Collider>() as BoxCollider;
 		colliderVar.size = new Vector3(colliderVar.size.x +.1f, colliderVar.size.y, colliderVar.size.z +.1f);
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 12;
 		gameObject.tag = "Red";
-		gameObject.transform.particleSystem.enableEmission = false;
+		gameObject.transform.GetComponent<ParticleSystem>().enableEmission = false;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;
@@ -28,7 +28,7 @@ public class Red : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		if (gameObject.transform.parent != null) {
 			if (gameObject.transform.parent.gameObject.tag.Equals("Rotator")) {
-			gameObject.transform.particleSystem.enableEmission = true;
+			gameObject.transform.GetComponent<ParticleSystem>().enableEmission = true;
 			}
 		}
 	}
@@ -137,7 +137,7 @@ public class Red : MonoBehaviour {
 	public void Activate() {
 
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
@@ -146,7 +146,7 @@ public class Red : MonoBehaviour {
 	}
 	
 	public void deActivate() {
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

@@ -14,7 +14,7 @@ public class oneLifeMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Screen.lockCursor = false;
 		remembererObject = GameObject.FindGameObjectWithTag("rememberer");
 		

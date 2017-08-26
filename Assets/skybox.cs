@@ -10,7 +10,7 @@ public class skybox : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.material = skyboxMaterial;
+		gameObject.GetComponent<Renderer>().material = skyboxMaterial;
 	
 	}
 	
@@ -21,23 +21,23 @@ public class skybox : MonoBehaviour {
 		lightningTimer = false;
 		
 		yield return new WaitForSeconds(44.5f);
-		gameObject.renderer.material = lightning;
-		cameraObject.camera.backgroundColor = new Color (0, .14f, .16f, 1);
+		gameObject.GetComponent<Renderer>().material = lightning;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, .14f, .16f, 1);
 		yield return new WaitForSeconds(.05f);
-		gameObject.renderer.material = skyboxMaterial;
-		cameraObject.camera.backgroundColor = new Color (0, 0, 0, 1);
+		gameObject.GetComponent<Renderer>().material = skyboxMaterial;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, 0, 0, 1);
 		yield return new WaitForSeconds(.1f);
-		gameObject.renderer.material = lightning;
-		cameraObject.camera.backgroundColor = new Color (0, .14f, .16f, 1);
+		gameObject.GetComponent<Renderer>().material = lightning;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, .14f, .16f, 1);
 		yield return new WaitForSeconds(.2f);
-		gameObject.renderer.material = skyboxMaterial;
-		cameraObject.camera.backgroundColor = new Color (0, 0, 0, 1);
+		gameObject.GetComponent<Renderer>().material = skyboxMaterial;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, 0, 0, 1);
 		yield return new WaitForSeconds(.05f);
-		gameObject.renderer.material = lightning;
-		cameraObject.camera.backgroundColor = new Color (0, .14f, .16f, 1);
+		gameObject.GetComponent<Renderer>().material = lightning;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, .14f, .16f, 1);
 		yield return new WaitForSeconds(.05f);
-		gameObject.renderer.material = skyboxMaterial;
-		cameraObject.camera.backgroundColor = new Color (0, 0, 0, 1);
+		gameObject.GetComponent<Renderer>().material = skyboxMaterial;
+		cameraObject.GetComponent<Camera>().backgroundColor = new Color (0, 0, 0, 1);
 		lightningTimer = true;
 	}
 	

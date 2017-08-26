@@ -33,7 +33,7 @@ public class AlternatingCube : MonoBehaviour {
 	
 	void Start() {
 		
-		colliderVar = gameObject.collider as BoxCollider;
+		colliderVar = gameObject.GetComponent<Collider>() as BoxCollider;
 		colliderVar.size = new Vector3(colliderVar.size.x +.1f, colliderVar.size.y, colliderVar.size.z +.1f);
 		
 		timer1 = gameObject.AddComponent<AudioSource>();
@@ -48,28 +48,28 @@ public class AlternatingCube : MonoBehaviour {
 			
 			if (color == 1) {
 				if (colorActive == "red") {
-					gameObject.renderer.material.SetColor("_TintColor", redTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", redTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwoOff);
 				}
 			}
 			
 			if (color == 2) {
 				if (colorActive == "blue") {
-					gameObject.renderer.material.SetColor("_TintColor", blueTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", blueTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwoOff);
 				}
 			}
 			
 			if (color == 3) {
 				if (colorActive == "yellow") {
-					gameObject.renderer.material.SetColor("_TintColor", yellowTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", yellowTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwoOff);
 				}
 			}
 		
@@ -93,11 +93,11 @@ public class AlternatingCube : MonoBehaviour {
 		
 		if (nextColor == 1) {
 			while (pointInTime <= duration) {
-				color2.a = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").a, redTwoOff.a, pointInTime);
-				color2.b =  Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").b, redTwoOff.b, pointInTime);
-				color2.g =  Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").g, redTwoOff.g, pointInTime);
-				color2.r =  Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").r, redTwoOff.r, pointInTime);
-				gameObject.renderer.material.SetColor("_TintColor", color2);
+				color2.a = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").a, redTwoOff.a, pointInTime);
+				color2.b =  Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").b, redTwoOff.b, pointInTime);
+				color2.g =  Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").g, redTwoOff.g, pointInTime);
+				color2.r =  Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").r, redTwoOff.r, pointInTime);
+				gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", color2);
 				yield return new WaitForSeconds(time / 12);
 				pointInTime += time / 12;
 			}
@@ -105,11 +105,11 @@ public class AlternatingCube : MonoBehaviour {
 			}
 		else if (nextColor == 2) {
 			while (pointInTime <= duration) {
-				color2.a = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").a, blueTwoOff.a, pointInTime);
-				color2.b =  Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").b, blueTwoOff.b, pointInTime);
-				color2.g = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").g, blueTwoOff.g, pointInTime);
-				color2.r = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").r, blueTwoOff.r, pointInTime);
-				gameObject.renderer.material.SetColor("_TintColor", color2);
+				color2.a = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").a, blueTwoOff.a, pointInTime);
+				color2.b =  Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").b, blueTwoOff.b, pointInTime);
+				color2.g = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").g, blueTwoOff.g, pointInTime);
+				color2.r = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").r, blueTwoOff.r, pointInTime);
+				gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", color2);
 				yield return new WaitForSeconds(duration);
 				pointInTime += time / 12;
 			}
@@ -117,11 +117,11 @@ public class AlternatingCube : MonoBehaviour {
 		}
 		else if (nextColor == 3) {
 			while (pointInTime <= duration) {
-				color2.a = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").a, yellowTwoOff.a, pointInTime);
-				color2.b =  Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").b, yellowTwoOff.b, pointInTime);
-				color2.g = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").g, yellowTwoOff.g, pointInTime);
-				color2.r = Mathf.Lerp(gameObject.renderer.material.GetColor("_TintColor").r, yellowTwoOff.r, pointInTime);
-				gameObject.renderer.material.SetColor("_TintColor", color2);
+				color2.a = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").a, yellowTwoOff.a, pointInTime);
+				color2.b =  Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").b, yellowTwoOff.b, pointInTime);
+				color2.g = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").g, yellowTwoOff.g, pointInTime);
+				color2.r = Mathf.Lerp(gameObject.GetComponent<Renderer>().material.GetColor("_TintColor").r, yellowTwoOff.r, pointInTime);
+				gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", color2);
 				yield return new WaitForSeconds(duration);
 				pointInTime += time / 12;
 			}
@@ -154,28 +154,28 @@ public class AlternatingCube : MonoBehaviour {
 			
 			if (color == 1) {
 				if (colorActive == "red") {
-					gameObject.renderer.material.SetColor("_TintColor", redTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", redTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwoOff);
 				}
 			}
 			
 			if (color == 2) {
 				if (colorActive == "blue") {
-					gameObject.renderer.material.SetColor("_TintColor", blueTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", blueTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwoOff);
 				}
 			}
 			
 			if (color == 3) {
 				if (colorActive == "yellow") {
-					gameObject.renderer.material.SetColor("_TintColor", yellowTwo);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwo);
 				}
 				else {
-					gameObject.renderer.material.SetColor("_TintColor", yellowTwoOff);
+					gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwoOff);
 				}
 			}			
 
@@ -186,28 +186,28 @@ public class AlternatingCube : MonoBehaviour {
 	public void Activate(){
 		
 		if (color == 1) {
-			gameObject.renderer.material.SetColor("_TintColor", redTwo);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwo);
 
 		}
 		else if (color == 2) {
-			gameObject.renderer.material.SetColor("_TintColor", blueTwo);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwo);
 
 		}
 		else if (color == 3) {
-			gameObject.renderer.material.SetColor("_TintColor", yellowTwo);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwo);
 
 		}	
 	}
 	
 	public void deActivate() {
 		if (color == 1) {
-			gameObject.renderer.material.SetColor("_TintColor", redTwoOff);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", redTwoOff);
 		}
 		else if (color == 2) {
-			gameObject.renderer.material.SetColor("_TintColor", blueTwoOff);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", blueTwoOff);
 		}
 		else if (color == 3) {
-			gameObject.renderer.material.SetColor("_TintColor", yellowTwoOff);
+			gameObject.GetComponent<Renderer>().material.SetColor("_TintColor", yellowTwoOff);
 		}
 	}
 

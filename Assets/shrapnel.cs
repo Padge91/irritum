@@ -13,7 +13,7 @@ public class shrapnel : MonoBehaviour {
 		gameObject.transform.parent = GameObject.FindGameObjectWithTag("World").transform;
 		}
 		player = GameObject.FindGameObjectWithTag("Player");
-		rigidbody.useGravity = true;
+		GetComponent<Rigidbody>().useGravity = true;
 	StartCoroutine(timer());
 	}
 	
@@ -30,11 +30,11 @@ public class shrapnel : MonoBehaviour {
 		inversed = player.GetComponent<regularBehavior>().inversed;
 	
 		if (inversed) {
-		  rigidbody.useGravity = false;
+		  GetComponent<Rigidbody>().useGravity = false;
 		  transform.Translate(Vector3.up * Time.deltaTime * gravity, Space.World);
 		  }
 		  else {
-		  rigidbody.useGravity = true;
+		  GetComponent<Rigidbody>().useGravity = true;
 		  }
 		}
 		 

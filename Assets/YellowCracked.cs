@@ -21,12 +21,12 @@ public Material offMaterial;
 	
 	
 	void Start () {
-		colliderVar = gameObject.collider as BoxCollider;
+		colliderVar = gameObject.GetComponent<Collider>() as BoxCollider;
 		colliderVar.size = new Vector3(colliderVar.size.x +.1f, colliderVar.size.y, colliderVar.size.z +.1f);
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 14;
 		gameObject.tag = "Yellow";
-		area = (int)((collider.bounds.size.x * collider.bounds.size.y * collider.bounds.size.z) / 1.5f);
+		area = (int)((GetComponent<Collider>().bounds.size.x * GetComponent<Collider>().bounds.size.y * GetComponent<Collider>().bounds.size.z) / 1.5f);
 		
 		timer1 = gameObject.AddComponent<AudioSource>();
 		timer2 = gameObject.AddComponent<AudioSource>();
@@ -34,7 +34,7 @@ public Material offMaterial;
 		timer1.clip = Resources.Load("Audio/countdown") as AudioClip;
 		timer2.clip = Resources.Load("Audio/countdown") as AudioClip;
 		timer3.clip = Resources.Load("Audio/countdown") as AudioClip;
-		gameObject.transform.particleSystem.enableEmission = false;
+		gameObject.transform.GetComponent<ParticleSystem>().enableEmission = false;
 		
 		explosion = gameObject.AddComponent<AudioSource>();
 		explosion.clip = Resources.Load("Audio/break1") as AudioClip;
@@ -53,7 +53,7 @@ public Material offMaterial;
 		yield return new WaitForSeconds(1);
 		if (gameObject.transform.parent != null) {
 			if (gameObject.transform.parent.gameObject.tag.Equals("Rotator")) {
-			gameObject.transform.particleSystem.enableEmission = true;
+			gameObject.transform.GetComponent<ParticleSystem>().enableEmission = true;
 			}
 		}
 	}
@@ -81,7 +81,7 @@ public Material offMaterial;
 	
 	void makeShrapnel() {
 		for (int i = 0; i < area; i++) {
-		Instantiate(shrapnel, new Vector3(transform.position.x + Random.Range(-gameObject.collider.bounds.size.x / 2, gameObject.collider.bounds.size.x / 2), transform.position.y + Random.Range(-gameObject.collider.bounds.size.y / 2, gameObject.collider.bounds.size.y / 2), transform.position.z + Random.Range(-gameObject.collider.bounds.size.z / 2, gameObject.collider.bounds.size.z / 2)), Random.rotation);
+		Instantiate(shrapnel, new Vector3(transform.position.x + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.x / 2, gameObject.GetComponent<Collider>().bounds.size.x / 2), transform.position.y + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.y / 2, gameObject.GetComponent<Collider>().bounds.size.y / 2), transform.position.z + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.z / 2, gameObject.GetComponent<Collider>().bounds.size.z / 2)), Random.rotation);
 		}
 	}
 	
@@ -89,13 +89,13 @@ public Material offMaterial;
 			ableToBlow = false;
 		yield return new WaitForSeconds(time);
 		makeShrapnel();
-		gameObject.renderer.enabled = false;
-		gameObject.rigidbody.collider.enabled = false;
+		gameObject.GetComponent<Renderer>().enabled = false;
+		gameObject.GetComponent<Rigidbody>().GetComponent<Collider>().enabled = false;
 		explosion.Play();
 		yield return new WaitForSeconds(respawnTime);
 			ableToBlow = true;
-		gameObject.renderer.enabled = true;
-		gameObject.rigidbody.collider.enabled = true;
+		gameObject.GetComponent<Renderer>().enabled = true;
+		gameObject.GetComponent<Rigidbody>().GetComponent<Collider>().enabled = true;
 		
 	}
 	
@@ -206,7 +206,7 @@ public Material offMaterial;
 
 		
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
@@ -215,7 +215,7 @@ public Material offMaterial;
 	}
 	
 	public void deActivate() {
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

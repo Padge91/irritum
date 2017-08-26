@@ -154,7 +154,7 @@ public class minigame : MonoBehaviour {
 				}
 				unPause();
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 			}
 			
 			if (GUI.Button (new Rect(Screen.width / 7, Screen.height / 2.25f, Screen.width / 7, Screen.height / 10), "Skip")){
@@ -165,7 +165,7 @@ public class minigame : MonoBehaviour {
 				unPause();
 				ableToPause = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 			}
 				
 			GUI.color = new Color(1,1,1,1f); 
@@ -299,7 +299,7 @@ public class minigame : MonoBehaviour {
 	void finishLevel() {
 			levelFinished = true;
 			Time.timeScale = 0;
-			Screen.showCursor = true;
+			Cursor.visible = true;
 			Screen.lockCursor = false;
 	}
 	
@@ -333,13 +333,13 @@ public class minigame : MonoBehaviour {
 				unPause();
 				optionsMenu = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				Screen.lockCursor = true;
 			}
 			else if (!paused) {
 				pause();
 				paused = true;
-				Screen.showCursor = true;
+				Cursor.visible = true;
 				Screen.lockCursor = false;
 			}
 			}

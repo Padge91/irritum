@@ -14,9 +14,9 @@ public class OrangeCracked : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		colliderVar = gameObject.collider as BoxCollider;
+		colliderVar = gameObject.GetComponent<Collider>() as BoxCollider;
 		colliderVar.size = new Vector3(colliderVar.size.x +.1f, colliderVar.size.y, colliderVar.size.z +.1f);
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 17;
 		gameObject.tag = "Orange";
 		
@@ -51,11 +51,11 @@ void OnTriggerEnter(Collider other) {
 	
 	IEnumerator destroySelf () {
 		yield return new WaitForSeconds(time);
-		gameObject.renderer.enabled = false;
-		gameObject.rigidbody.collider.enabled = false;
+		gameObject.GetComponent<Renderer>().enabled = false;
+		gameObject.GetComponent<Rigidbody>().GetComponent<Collider>().enabled = false;
 		yield return new WaitForSeconds(respawnTime);
-		gameObject.renderer.enabled = true;
-		gameObject.rigidbody.collider.enabled = true;
+		gameObject.GetComponent<Renderer>().enabled = true;
+		gameObject.GetComponent<Rigidbody>().GetComponent<Collider>().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -162,7 +162,7 @@ void OnTriggerEnter(Collider other) {
 	public void Activate() {
 		
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
@@ -171,7 +171,7 @@ void OnTriggerEnter(Collider other) {
 	}
 	
 	public void deActivate() {
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

@@ -11,9 +11,9 @@ public class Purple : MonoBehaviour {
 	void Start () {
 		
 		
-		colliderVar = gameObject.collider as BoxCollider;
+		colliderVar = gameObject.GetComponent<Collider>() as BoxCollider;
 		colliderVar.size = new Vector3(colliderVar.size.x +.1f, colliderVar.size.y, colliderVar.size.z +.1f);
-		gameObject.renderer.material = offMaterial;
+		gameObject.GetComponent<Renderer>().material = offMaterial;
 		gameObject.layer = 16;
 		gameObject.tag = "Purple";
 		
@@ -128,7 +128,7 @@ public class Purple : MonoBehaviour {
 		
 
 		
-			renderer.material = onMaterial;
+			GetComponent<Renderer>().material = onMaterial;
 		
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
@@ -137,7 +137,7 @@ public class Purple : MonoBehaviour {
 	}
 	
 	public void deActivate() {
-			renderer.material = offMaterial;
+			GetComponent<Renderer>().material = offMaterial;
 		
 		if (gameObject.GetComponent<BloomObject>() != null) {
 		gameObject.GetComponent<BloomObject>().enabled = false;

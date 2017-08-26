@@ -59,7 +59,7 @@ public class optionsMenu : MonoBehaviour {
 		remembererObject = GameObject.FindGameObjectWithTag("rememberer");
 		AudioListener.volume = remembererObject.GetComponent<rememberer>().volume;
 
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Time.timeScale = 1;
 	
 		remembererObject = GameObject.FindGameObjectWithTag("rememberer");

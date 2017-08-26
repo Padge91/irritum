@@ -13,7 +13,7 @@ public class whiteCracked : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		area = (int)((collider.bounds.size.x * collider.bounds.size.y * collider.bounds.size.z) / 4f);
+		area = (int)((GetComponent<Collider>().bounds.size.x * GetComponent<Collider>().bounds.size.y * GetComponent<Collider>().bounds.size.z) / 4f);
 		timer1 = gameObject.AddComponent<AudioSource>();
 		timer2 = gameObject.AddComponent<AudioSource>();
 		timer3 = gameObject.AddComponent<AudioSource>();
@@ -55,7 +55,7 @@ public class whiteCracked : MonoBehaviour {
 	
 	void makeShrapnel() {
 		for (int i = 0; i < area; i++) {
-		Instantiate(shrapnel, new Vector3(transform.position.x + Random.Range(-gameObject.collider.bounds.size.x / 2, gameObject.collider.bounds.size.x / 2), transform.position.y + Random.Range(-gameObject.collider.bounds.size.y / 2, gameObject.collider.bounds.size.y / 2), transform.position.z + Random.Range(-gameObject.collider.bounds.size.z / 2, gameObject.collider.bounds.size.z / 2)), Random.rotation);
+		Instantiate(shrapnel, new Vector3(transform.position.x + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.x / 2, gameObject.GetComponent<Collider>().bounds.size.x / 2), transform.position.y + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.y / 2, gameObject.GetComponent<Collider>().bounds.size.y / 2), transform.position.z + Random.Range(-gameObject.GetComponent<Collider>().bounds.size.z / 2, gameObject.GetComponent<Collider>().bounds.size.z / 2)), Random.rotation);
 		}
 	}
 }

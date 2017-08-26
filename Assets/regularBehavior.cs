@@ -225,7 +225,7 @@ public class regularBehavior : MonoBehaviour {
 	}
 	
 	void playLandingAnimation() {
-		animator.animation.CrossFade("LandingPlayer");
+		animator.GetComponent<Animation>().CrossFade("LandingPlayer");
 		landingAnimationPlayed = true;
 	}
 	
@@ -233,7 +233,7 @@ public class regularBehavior : MonoBehaviour {
 		if ((other.gameObject.tag == "checkpoint") && (!iAmGhost)) {
 			checkpoint = other.gameObject.transform;
 			other.GetComponent<ParticleSystem>().enableEmission = false;
-			other.collider.enabled = false;
+			other.GetComponent<Collider>().enabled = false;
 		}
 		
 	}
@@ -249,15 +249,15 @@ public class regularBehavior : MonoBehaviour {
 				StartCoroutine(die());
 		}
 		 else if ((other.gameObject.tag == "Boost Bubble") && (abletoBoost)) {
-			other.animation.Play("Default Take");
+			other.GetComponent<Animation>().Play("Default Take");
 			boost = true;
 			abletoBoost = false;
 		}
 		else if ((other.gameObject.tag == "Portal1") && (abletoTeleport)) {
-			StartCoroutine(teleporter(GameObject.FindGameObjectWithTag("Portal2").rigidbody.position));
+			StartCoroutine(teleporter(GameObject.FindGameObjectWithTag("Portal2").GetComponent<Rigidbody>().position));
 		}
 		else if ((other.gameObject.tag == "Portal2") && (abletoTeleport)) {
-			StartCoroutine(teleporter(GameObject.FindGameObjectWithTag("Portal1").rigidbody.position));
+			StartCoroutine(teleporter(GameObject.FindGameObjectWithTag("Portal1").GetComponent<Rigidbody>().position));
 		}
 		else if (other.gameObject.tag == "whiteToggle") {
 			if (ableToChangeWhite) {
@@ -269,12 +269,12 @@ public class regularBehavior : MonoBehaviour {
 		else if ((other.gameObject.tag == "checkpoint") && (!iAmGhost)) {
 			checkpoint = other.gameObject.transform;
 			other.GetComponent<ParticleSystem>().enableEmission = false;
-			other.collider.enabled = false;
+			other.GetComponent<Collider>().enabled = false;
 		}
 		
 		else if ((other.gameObject.tag == "water") && (loadedLevel == 40)) {
 			AudioListener.volume = 0;
-			GameObject.FindGameObjectWithTag("renderer").gameObject.renderer.enabled = false;
+			GameObject.FindGameObjectWithTag("renderer").gameObject.GetComponent<Renderer>().enabled = false;
 			gameObject.GetComponent<ParticleSystem>().enableEmission = false;
 		}
 		
@@ -434,7 +434,7 @@ public class regularBehavior : MonoBehaviour {
 				unPause();
 				optionsMenu = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				Screen.lockCursor = false;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				cameraPivot.GetComponent<MouseLook>().enabled = true;
@@ -465,7 +465,7 @@ public class regularBehavior : MonoBehaviour {
 				unPause();
 				optionsMenu = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				Screen.lockCursor = false;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				cameraPivot.GetComponent<MouseLook>().enabled = true;
@@ -497,7 +497,7 @@ public class regularBehavior : MonoBehaviour {
 				unPause();
 				optionsMenu = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				Screen.lockCursor = false;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				cameraPivot.GetComponent<MouseLook>().enabled = true;
@@ -872,7 +872,7 @@ public class regularBehavior : MonoBehaviour {
 				}
 				unPause();
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				GameObject.FindGameObjectWithTag("camerapivot").GetComponent<MouseLook>().enabled = true;
 			}
@@ -897,7 +897,7 @@ public class regularBehavior : MonoBehaviour {
 				}
 				unPause();
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				GameObject.FindGameObjectWithTag("camerapivot").GetComponent<MouseLook>().enabled = true;
 			}
@@ -1449,8 +1449,8 @@ public class regularBehavior : MonoBehaviour {
 			gameObject.transform.position = GameObject.FindGameObjectWithTag("ghostSpawnLocation").transform.position;
 			}
 			
-			gameObject.rigidbody.velocity = Vector3.zero;
-				gameObject.rigidbody.angularVelocity = Vector3.zero;
+			gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 			dying = true;
 				
 			//turn off
@@ -1779,7 +1779,7 @@ public class regularBehavior : MonoBehaviour {
 		demonVoice.loop = false;
 		
 		shadowObjectMover = GameObject.FindGameObjectWithTag("Shadow");
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		Screen.lockCursor = true;
 		
 		//if (!iAmGhost) {
@@ -1818,12 +1818,12 @@ public class regularBehavior : MonoBehaviour {
 		animator = GameObject.FindGameObjectWithTag("AnimatorGhost");
 		}
 		
-		animator.animation["TurnLeftPlayer"].speed = .1f;
-		animator.animation["TurnRightPlayer"].speed = .1f; 
-		animator.animation["RunningPlayer"].speed = 2f; 
-		animator.animation["JumpPlayer"].speed = 2.5f; 
-		animator.animation["FallingPlayer"].speed = 2.5f; 
-		animator.animation["LandingPlayer"].speed = 4;
+		animator.GetComponent<Animation>()["TurnLeftPlayer"].speed = .1f;
+		animator.GetComponent<Animation>()["TurnRightPlayer"].speed = .1f; 
+		animator.GetComponent<Animation>()["RunningPlayer"].speed = 2f; 
+		animator.GetComponent<Animation>()["JumpPlayer"].speed = 2.5f; 
+		animator.GetComponent<Animation>()["FallingPlayer"].speed = 2.5f; 
+		animator.GetComponent<Animation>()["LandingPlayer"].speed = 4;
 		
 		if (gameObject.layer == 19) {
 			iAmGhost = true;
@@ -1952,19 +1952,19 @@ public class regularBehavior : MonoBehaviour {
 		}
 		
 		//if (!iAmGhost) {
-		ParticleSystem.Particle[] p = new ParticleSystem.Particle[particleSystem.particleCount];
-		int l = particleSystem.GetParticles(p);
+		ParticleSystem.Particle[] p = new ParticleSystem.Particle[GetComponent<ParticleSystem>().particleCount];
+		int l = GetComponent<ParticleSystem>().GetParticles(p);
 		
 		
 		if (inversed) {
 			for (int i = 0; i < l; i++) {
-					p[i].velocity = new Vector3(0, p[i].lifetime / p[i].startLifetime * 125F, 0);
+					p[i].velocity = new Vector3(0, p[i].remainingLifetime / p[i].startLifetime * 125F, 0);
 				}
 				gameObject.GetComponent<ParticleSystem>().SetParticles(p, l);
 		}
 		else {
 			for (int i = 0; i < l; i++) {
-					p[i].velocity = new Vector3(0, p[i].lifetime / p[i].startLifetime * -125F, 0);
+					p[i].velocity = new Vector3(0, p[i].remainingLifetime / p[i].startLifetime * -125F, 0);
 				}
 				gameObject.GetComponent<ParticleSystem>().SetParticles(p, l);
 		}
@@ -1978,7 +1978,7 @@ public class regularBehavior : MonoBehaviour {
 			footstep1.Play();
 		}
 		
-		if ((animator.animation.IsPlaying("RunningPlayer")) || (animator.animation.IsPlaying("BackUpPlayer"))) {
+		if ((animator.GetComponent<Animation>().IsPlaying("RunningPlayer")) || (animator.GetComponent<Animation>().IsPlaying("BackUpPlayer"))) {
 			footstepsPlaying = true;
 		}
 		else {
@@ -1994,7 +1994,7 @@ public class regularBehavior : MonoBehaviour {
 				unPause();
 				optionsMenu = false;
 				paused = false;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				Screen.lockCursor = true;
 				gameObject.GetComponent<MouseLook>().enabled = true;
 				cameraPivot.GetComponent<MouseLook>().enabled = true;
@@ -2006,7 +2006,7 @@ public class regularBehavior : MonoBehaviour {
 			else if (!paused) {
 				pause();
 				paused = true;
-				Screen.showCursor = true;
+				Cursor.visible = true;
 				Screen.lockCursor = false;
 				gameObject.GetComponent<MouseLook>().enabled = false;
 				cameraPivot.GetComponent<MouseLook>().enabled = false;
@@ -2021,12 +2021,12 @@ public class regularBehavior : MonoBehaviour {
 		RaycastHit hit2;
 		
 		  if (Physics.Raycast(transform.position, Vector3.down, out hit, 30)) {
-			shadowObjectMover.renderer.enabled = true;
+			shadowObjectMover.GetComponent<Renderer>().enabled = true;
 			shadowObjectMover.transform.position = Vector3.MoveTowards(shadowObjectMover.transform.position, hit.point , 100);
 			shadowObjectMover.transform.rotation = hit.transform.rotation;
 		} 
 		else {
-			shadowObjectMover.renderer.enabled = false;
+			shadowObjectMover.GetComponent<Renderer>().enabled = false;
 		}
 		
 		if (Physics.Raycast(transform.position, Vector3.down, out hit2, 1.25f)) {
@@ -2051,35 +2051,35 @@ public class regularBehavior : MonoBehaviour {
 		
 		if (grounded) {
 			
-		if ((Input.GetAxis("Mouse X") < 0) && (animator.animation.IsPlaying("IdlePlayer"))) {
-			animator.animation.CrossFade("TurnRightPlayer", .2f);
+		if ((Input.GetAxis("Mouse X") < 0) && (animator.GetComponent<Animation>().IsPlaying("IdlePlayer"))) {
+			animator.GetComponent<Animation>().CrossFade("TurnRightPlayer", .2f);
 		}
 		
-		if ((Input.GetAxis("Mouse X") > 0) && (animator.animation.IsPlaying("IdlePlayer"))){
-			animator.animation.CrossFade("TurnLeftPlayer", .2f);
+		if ((Input.GetAxis("Mouse X") > 0) && (animator.GetComponent<Animation>().IsPlaying("IdlePlayer"))){
+			animator.GetComponent<Animation>().CrossFade("TurnLeftPlayer", .2f);
 		} 
 			
 			
 		if (Wpressed) {
-			animator.animation.CrossFade("RunningPlayer", .4f);
+			animator.GetComponent<Animation>().CrossFade("RunningPlayer", .4f);
 		}
 
 		if (Spressed) {
-			animator.animation.CrossFade("BackUpPlayer", .4f);
+			animator.GetComponent<Animation>().CrossFade("BackUpPlayer", .4f);
 		}
 		 else if (Apressed) {
-			animator.animation.CrossFade("RunningPlayer", .4f);
+			animator.GetComponent<Animation>().CrossFade("RunningPlayer", .4f);
 		}
 		else if (Dpressed) {
-			animator.animation.CrossFade("RunningPlayer", .2f);
+			animator.GetComponent<Animation>().CrossFade("RunningPlayer", .2f);
 		}
 		
 		if (Apressed && Dpressed) {
-				animator.animation.CrossFade("IdlePlayer", .5f);
+				animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 				gameObject.GetComponent<CharacterMotor>().canControl = false;
 		}
 		 else if (Wpressed && Spressed) {
-			animator.animation.CrossFade("IdlePlayer", .5f);
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 			gameObject.GetComponent<CharacterMotor>().canControl = false;
 		}
 			else {
@@ -2112,7 +2112,7 @@ public class regularBehavior : MonoBehaviour {
 		}
 		 if (Input.GetKeyUp(moveForwards)){
 			if (!Dpressed && !Apressed) {
-			animator.animation.CrossFade("IdlePlayer", .5f);
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 			}
 			Wpressed = false;
 		}
@@ -2129,7 +2129,7 @@ public class regularBehavior : MonoBehaviour {
 			
 			
 			if (!Wpressed && !Apressed) {
-			animator.animation.CrossFade("IdlePlayer", .5f);
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 			}
 			
 		}
@@ -2146,7 +2146,7 @@ public class regularBehavior : MonoBehaviour {
 			Apressed = false;
 			
 			if (!Wpressed && !Dpressed) {
-			animator.animation.CrossFade("IdlePlayer", .5f);
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 			}
 			
 		}
@@ -2160,7 +2160,7 @@ public class regularBehavior : MonoBehaviour {
 
 			
 			if (!Wpressed) {
-			animator.animation.CrossFade("IdlePlayer", .5f);
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .5f);
 			}
 			
 		}
@@ -2220,13 +2220,13 @@ public class regularBehavior : MonoBehaviour {
 
 		
 		
-		if (!animator.animation.isPlaying) {
-			animator.animation.CrossFade("IdlePlayer", .2f);
+		if (!animator.GetComponent<Animation>().isPlaying) {
+			animator.GetComponent<Animation>().CrossFade("IdlePlayer", .2f);
 		}
 		
 		if ((Input.GetKeyDown(jump)) && (grounded)) {
 			StartCoroutine(inverseTimer());
-			animator.animation.CrossFade("JumpPlayer", .2f);
+			animator.GetComponent<Animation>().CrossFade("JumpPlayer", .2f);
 			grounded = false;
 			landingAnimationPlayed = false;
 			
@@ -2245,7 +2245,7 @@ public class regularBehavior : MonoBehaviour {
 		}
 		
 		if (!grounded) {
-			animator.animation.CrossFade("FallingPlayer");
+			animator.GetComponent<Animation>().CrossFade("FallingPlayer");
 		}
 		
 		if (flipping) {

@@ -35,7 +35,7 @@ public class levelMenuScript : MonoBehaviour {
 	void Start () {
 
 		switching = false;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Time.timeScale = 1;
 		
 		rememberer = GameObject.FindGameObjectWithTag("rememberer");
@@ -79,7 +79,7 @@ public class levelMenuScript : MonoBehaviour {
 	}
 	
 	void Awake () {
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		switching = false;
 	}
 	
@@ -181,7 +181,7 @@ public class levelMenuScript : MonoBehaviour {
 					
 				rememberer.GetComponent<rememberer>().oneLife = false;
 					level = levelChosen;
-				Screen.showCursor = false;
+				Cursor.visible = false;
 				go = true;
 			}
 		

@@ -16,8 +16,8 @@ public class Rotating : MonoBehaviour {
 	void Start () {
 		AudioSource audioSource = gameObject.AddComponent<AudioSource>();
 		audioSource.clip = Resources.Load("Audio/moverLoop") as AudioClip;
-		audio.loop = true;
-		audio.volume = .3f;
+		GetComponent<AudioSource>().loop = true;
+		GetComponent<AudioSource>().volume = .3f;
 		audioSource.minDistance = 5;
 		audioSource.maxDistance = 10;
 		audioSource.Play();
